@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('test-python') {
             steps {
-                sh 'python --version'
+                sh 'python --version && ls -lFa && pwd'
             }
         }
         stage('build-app') {
             steps {
-                sh 'docker build -t my-ci-app:latest'
+                sh 'docker build -t my-ci-app:latest .'
             }
         }
         stage('test-app') {
