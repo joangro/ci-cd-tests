@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('test-python') {
             steps {
-                agent { docker { image 'python:3.5.1' } }
                 sh 'python --version'
             }
         }
