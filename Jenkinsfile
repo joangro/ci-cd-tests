@@ -13,7 +13,7 @@ pipeline {
         }
         stage('test-app') {
             steps {
-                sh 'export CONTAINER_ID=$(docker run -d --rm 8081:8080 my-ci-app:latest)'
+                sh 'export CONTAINER_ID=$(docker run -d --rm -p 8081:8080 my-ci-app:latest)'
                 sh '''
 export RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" localhost:8081)
 echo $code | python -c "import sys
