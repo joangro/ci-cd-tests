@@ -11,7 +11,7 @@ pipeline {
                 sh 'docker build -t my-ci-app:latest .'
             }
         }
-        stage('test-app') {
+        stage('test-build') {
             steps {
                 sh 'export CONTAINER_ID=$(docker run -d --rm -p 8081:8080 my-ci-app:latest)'
                 sh '''
